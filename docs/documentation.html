@@ -1,0 +1,738 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Documentation &mdash; multimodal 0.0.1 documentation</title>
+      <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+        <script src="_static/doctools.js"></script>
+        <script src="_static/sphinx_highlight.js"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="prev" title="Configuration" href="configuration.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="index.html" class="icon icon-home">
+            multimodal
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="usage.html">Usage</a></li>
+<li class="toctree-l1"><a class="reference internal" href="demo.html">Demo</a></li>
+<li class="toctree-l1"><a class="reference internal" href="configuration.html">Configuration</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Documentation</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#controller">controller</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#module-controller.create_model">create_model</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#controller.create_model.create_model"><code class="docutils literal notranslate"><span class="pre">create_model()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#module-controller.image_model">image_model</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#controller.image_model.create_image_model"><code class="docutils literal notranslate"><span class="pre">create_image_model()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#module-controller.text_model">text_model</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#controller.text_model.check_pretrained_word_embeddings"><code class="docutils literal notranslate"><span class="pre">check_pretrained_word_embeddings()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#controller.text_model.create_datasets_from_conf"><code class="docutils literal notranslate"><span class="pre">create_datasets_from_conf()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#controller.text_model.create_text_model"><code class="docutils literal notranslate"><span class="pre">create_text_model()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#module-controller.multimodal_model">multimodal_model</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#controller.multimodal_model.create_df_for_col"><code class="docutils literal notranslate"><span class="pre">create_df_for_col()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#controller.multimodal_model.create_multimodal_classification_model"><code class="docutils literal notranslate"><span class="pre">create_multimodal_classification_model()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#imageclassification">imageclassification</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#module-imageclassification.create_models">create_models</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#imageclassification.create_models.ModelWithInfo"><code class="docutils literal notranslate"><span class="pre">ModelWithInfo</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#imageclassification.create_models.TrainableModel"><code class="docutils literal notranslate"><span class="pre">TrainableModel</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#imageclassification.create_models.create_models"><code class="docutils literal notranslate"><span class="pre">create_models()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#module-imageclassification.dataset_generation">dataset_generation</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#imageclassification.dataset_generation.generate_dataset_stats"><code class="docutils literal notranslate"><span class="pre">generate_dataset_stats()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#imageclassification.dataset_generation.load_dataset"><code class="docutils literal notranslate"><span class="pre">load_dataset()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#module-imageclassification.feature_extraction">feature_extraction</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#imageclassification.feature_extraction.erase_classifier_layer"><code class="docutils literal notranslate"><span class="pre">erase_classifier_layer()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#imageclassification.feature_extraction.get_feature_extractor_from_saved_model"><code class="docutils literal notranslate"><span class="pre">get_feature_extractor_from_saved_model()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#module-imageclassification.image_types">image_types</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#imageclassification.image_types.DataPreprocessor"><code class="docutils literal notranslate"><span class="pre">DataPreprocessor</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#imageclassification.image_types.ModelConfiguration"><code class="docutils literal notranslate"><span class="pre">ModelConfiguration</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#imageclassification.image_types.ModelInstantiator"><code class="docutils literal notranslate"><span class="pre">ModelInstantiator</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#module-imageclassification.train_models">train_models</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#imageclassification.train_models.get_models"><code class="docutils literal notranslate"><span class="pre">get_models()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#imageclassification.train_models.train_model"><code class="docutils literal notranslate"><span class="pre">train_model()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#textclassification">textclassification</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#module-textclassification.common.classifier">common</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#textclassification.common.classifier.create_classifier"><code class="docutils literal notranslate"><span class="pre">create_classifier()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#textclassification.common.common_types.GensimEmbeddingLayerGenerator"><code class="docutils literal notranslate"><span class="pre">GensimEmbeddingLayerGenerator</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#textclassification.common.datapreprocessing.clean_text"><code class="docutils literal notranslate"><span class="pre">clean_text()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#textclassification.common.datapreprocessing.concatenate_text_columns"><code class="docutils literal notranslate"><span class="pre">concatenate_text_columns()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#textclassification.common.datapreprocessing.preprocess_csv"><code class="docutils literal notranslate"><span class="pre">preprocess_csv()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#textclassification.common.featureextraction.get_feature_extractor_from_model"><code class="docutils literal notranslate"><span class="pre">get_feature_extractor_from_model()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#textclassification.common.wordembeddings.get_embedding_and_vocabulary_from_keyed_vectors"><code class="docutils literal notranslate"><span class="pre">get_embedding_and_vocabulary_from_keyed_vectors()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#textclassification.common.wordembeddings.get_embedding_layer_and_vocab"><code class="docutils literal notranslate"><span class="pre">get_embedding_layer_and_vocab()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#textclassification.common.wordembeddings.get_embedding_layer_from_weights"><code class="docutils literal notranslate"><span class="pre">get_embedding_layer_from_weights()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#textclassification.common.wordembeddings.get_gensim_fasttext_embedding_layer"><code class="docutils literal notranslate"><span class="pre">get_gensim_fasttext_embedding_layer()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#textclassification.common.wordembeddings.get_gensim_word2vec_embedding_layer"><code class="docutils literal notranslate"><span class="pre">get_gensim_word2vec_embedding_layer()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#textclassification.common.wordembeddings.get_list_of_sentences_from_txt_file"><code class="docutils literal notranslate"><span class="pre">get_list_of_sentences_from_txt_file()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">multimodal</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Documentation</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/documentation.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="documentation">
+<h1>Documentation<a class="headerlink" href="#documentation" title="Permalink to this heading"></a></h1>
+<section id="controller">
+<h2>controller<a class="headerlink" href="#controller" title="Permalink to this heading"></a></h2>
+<section id="module-controller.create_model">
+<span id="create-model"></span><h3>create_model<a class="headerlink" href="#module-controller.create_model" title="Permalink to this heading"></a></h3>
+<dl class="py function">
+<dt class="sig sig-object py" id="controller.create_model.create_model">
+<span class="sig-prename descclassname"><span class="pre">controller.create_model.</span></span><span class="sig-name descname"><span class="pre">create_model</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">configuration</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Dict</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Model</span></span></span><a class="headerlink" href="#controller.create_model.create_model" title="Permalink to this definition"></a></dt>
+<dd><p>Creates a tensorflow model based on the configuration object</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>configuration</strong> – dictionary</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Keras model based on configuration</p>
+</dd>
+</dl>
+</dd></dl>
+
+</section>
+<section id="module-controller.image_model">
+<span id="image-model"></span><h3>image_model<a class="headerlink" href="#module-controller.image_model" title="Permalink to this heading"></a></h3>
+<dl class="py function">
+<dt class="sig sig-object py" id="controller.image_model.create_image_model">
+<span class="sig-prename descclassname"><span class="pre">controller.image_model.</span></span><span class="sig-name descname"><span class="pre">create_image_model</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">configuration</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#controller.image_model.create_image_model" title="Permalink to this definition"></a></dt>
+<dd><p>Create a keras model used for image classification based on a configuration file
+and trains it for classification task</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>configuration</strong> – dictionary</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>None</p>
+</dd>
+</dl>
+</dd></dl>
+
+</section>
+<section id="module-controller.text_model">
+<span id="text-model"></span><h3>text_model<a class="headerlink" href="#module-controller.text_model" title="Permalink to this heading"></a></h3>
+<dl class="py function">
+<dt class="sig sig-object py" id="controller.text_model.check_pretrained_word_embeddings">
+<span class="sig-prename descclassname"><span class="pre">controller.text_model.</span></span><span class="sig-name descname"><span class="pre">check_pretrained_word_embeddings</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">configuration</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Dict</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#controller.text_model.check_pretrained_word_embeddings" title="Permalink to this definition"></a></dt>
+<dd><p>Checks the configuration for pretrained word embeddings is valid</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>configuration</strong> – Dict</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><ul class="simple">
+<li></li>
+</ul>
+</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="controller.text_model.create_datasets_from_conf">
+<span class="sig-prename descclassname"><span class="pre">controller.text_model.</span></span><span class="sig-name descname"><span class="pre">create_datasets_from_conf</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">configuration</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Dict</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Tuple</span><span class="p"><span class="pre">[</span></span><span class="pre">Tuple</span><span class="p"><span class="pre">[</span></span><span class="pre">ndarray</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">ndarray</span><span class="p"><span class="pre">]</span></span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">Tuple</span><span class="p"><span class="pre">[</span></span><span class="pre">ndarray</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">ndarray</span><span class="p"><span class="pre">]</span></span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#controller.text_model.create_datasets_from_conf" title="Permalink to this definition"></a></dt>
+<dd><p>Create tuple of train, test datasets from configuration object</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>configuration</strong> – dict</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>(train, test) -&gt; any one can be None</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="controller.text_model.create_text_model">
+<span class="sig-prename descclassname"><span class="pre">controller.text_model.</span></span><span class="sig-name descname"><span class="pre">create_text_model</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">configuration</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Dict</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Model</span></span></span><a class="headerlink" href="#controller.text_model.create_text_model" title="Permalink to this definition"></a></dt>
+<dd><p>Creates a text classification model based on the configuration object</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>configuration</strong> – dict</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Keras model based on configuration</p>
+</dd>
+</dl>
+</dd></dl>
+
+</section>
+<section id="module-controller.multimodal_model">
+<span id="multimodal-model"></span><h3>multimodal_model<a class="headerlink" href="#module-controller.multimodal_model" title="Permalink to this heading"></a></h3>
+<dl class="py function">
+<dt class="sig sig-object py" id="controller.multimodal_model.create_df_for_col">
+<span class="sig-prename descclassname"><span class="pre">controller.multimodal_model.</span></span><span class="sig-name descname"><span class="pre">create_df_for_col</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data_type</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">data_column</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">data_conf</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">cat_map</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Tuple</span><span class="p"><span class="pre">[</span></span><span class="pre">DataFrame</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">DataFrame</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">DataFrame</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#controller.multimodal_model.create_df_for_col" title="Permalink to this definition"></a></dt>
+<dd><p>Creates dataframes for train, test and inference(depending on the configuration)
+each composed of the data_column and the corresponding label</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>data_type</strong> – str, either text or image</p></li>
+<li><p><strong>data_column</strong> – str, name of label category</p></li>
+<li><p><strong>data_conf</strong> – dict, data configuration dictionary</p></li>
+<li><p><strong>cat_map</strong> – dict, category mapping(it needs to be from 0 to n)</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>tuple of three (potential) dataframes: training, test, inference</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="controller.multimodal_model.create_multimodal_classification_model">
+<span class="sig-prename descclassname"><span class="pre">controller.multimodal_model.</span></span><span class="sig-name descname"><span class="pre">create_multimodal_classification_model</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">configuration</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Model</span></span></span><a class="headerlink" href="#controller.multimodal_model.create_multimodal_classification_model" title="Permalink to this definition"></a></dt>
+<dd><p>Creates a multimodal classification model using a configuration dictionary</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>configuration</strong> – dictionary</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Keras model</p>
+</dd>
+</dl>
+</dd></dl>
+
+</section>
+</section>
+<section id="imageclassification">
+<h2>imageclassification<a class="headerlink" href="#imageclassification" title="Permalink to this heading"></a></h2>
+<section id="module-imageclassification.create_models">
+<span id="create-models"></span><h3>create_models<a class="headerlink" href="#module-imageclassification.create_models" title="Permalink to this heading"></a></h3>
+<dl class="py class">
+<dt class="sig sig-object py" id="imageclassification.create_models.ModelWithInfo">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">imageclassification.create_models.</span></span><span class="sig-name descname"><span class="pre">ModelWithInfo</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">model</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">keras.engine.training.Model</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">name</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#imageclassification.create_models.ModelWithInfo" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="imageclassification.create_models.TrainableModel">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">imageclassification.create_models.</span></span><span class="sig-name descname"><span class="pre">TrainableModel</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name:</span> <span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">model_instantiator:</span> <span class="pre">imageclassification.image_types.ModelInstantiator</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">data_preprocessor:</span> <span class="pre">imageclassification.image_types.DataPreprocessor</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">image_size:</span> <span class="pre">int</span> <span class="pre">=</span> <span class="pre">128</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">no_classes:</span> <span class="pre">int</span> <span class="pre">=</span> <span class="pre">1000</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">train_layers_keywords:</span> <span class="pre">Tuple[str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">...]</span> <span class="pre">=</span> <span class="pre">&lt;factory&gt;</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">is_pretrained:</span> <span class="pre">bool</span> <span class="pre">=</span> <span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#imageclassification.create_models.TrainableModel" title="Permalink to this definition"></a></dt>
+<dd><dl class="py method">
+<dt class="sig sig-object py" id="imageclassification.create_models.TrainableModel.get_model">
+<span class="sig-name descname"><span class="pre">get_model</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Model</span></span></span><a class="headerlink" href="#imageclassification.create_models.TrainableModel.get_model" title="Permalink to this definition"></a></dt>
+<dd><p>Creates a keras Model using the architecture specified by model_instantiator, creates input and preprocesses it
+It can use pretrained models and specify which layers have to be frozen</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>keras Model based in this object’s configuration</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="imageclassification.create_models.create_models">
+<span class="sig-prename descclassname"><span class="pre">imageclassification.create_models.</span></span><span class="sig-name descname"><span class="pre">create_models</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">image_size</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">no_classes</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">models</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Tuple</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="#imageclassification.image_types.ModelConfiguration" title="imageclassification.image_types.ModelConfiguration"><span class="pre">ModelConfiguration</span></a><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="p"><span class="pre">...</span></span><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="#imageclassification.create_models.ModelWithInfo" title="imageclassification.create_models.ModelWithInfo"><span class="pre">ModelWithInfo</span></a><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#imageclassification.create_models.create_models" title="Permalink to this definition"></a></dt>
+<dd><p>Creates models based on ModelConfigurations</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>image_size</strong> – int</p></li>
+<li><p><strong>no_classes</strong> – int</p></li>
+<li><p><strong>models</strong> – tuple of ModelConfigurations</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>List of created Keras models and their info(ModelWithInfo type)</p>
+</dd>
+</dl>
+</dd></dl>
+
+</section>
+<section id="module-imageclassification.dataset_generation">
+<span id="dataset-generation"></span><h3>dataset_generation<a class="headerlink" href="#module-imageclassification.dataset_generation" title="Permalink to this heading"></a></h3>
+<dl class="py function">
+<dt class="sig sig-object py" id="imageclassification.dataset_generation.generate_dataset_stats">
+<span class="sig-prename descclassname"><span class="pre">imageclassification.dataset_generation.</span></span><span class="sig-name descname"><span class="pre">generate_dataset_stats</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">dataset</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">DatasetV2</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">name</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">int</span></span></span><a class="headerlink" href="#imageclassification.dataset_generation.generate_dataset_stats" title="Permalink to this definition"></a></dt>
+<dd><p>Generates dataset stats using matplotlib</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>dataset</strong> – tensorflow dataset</p></li>
+<li><p><strong>name</strong> – str, name displayed in the matplotlib plot</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>no of labels existing in the dataset</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="imageclassification.dataset_generation.load_dataset">
+<span class="sig-prename descclassname"><span class="pre">imageclassification.dataset_generation.</span></span><span class="sig-name descname"><span class="pre">load_dataset</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">image_size</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">batch_size</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">raw_data_path</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">validation_split</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">0.1</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Tuple</span><span class="p"><span class="pre">[</span></span><span class="pre">DatasetV2</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">DatasetV2</span><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#imageclassification.dataset_generation.load_dataset" title="Permalink to this definition"></a></dt>
+<dd><p>Creates a tensorflow dataset of images from directory raw_data_path
+The directory should have the structure:
+<a href="#id1"><span class="problematic" id="id2">|</span></a>cat1</p>
+<blockquote>
+<div><p><a href="#id3"><span class="problematic" id="id4">|</span></a>img1
+<a href="#id5"><span class="problematic" id="id6">|</span></a>img2
+<a href="#id7"><span class="problematic" id="id8">|</span></a>…</p>
+</div></blockquote>
+<dl class="simple">
+<dt><a href="#id9"><span class="problematic" id="id10">|</span></a>cat2</dt><dd><p><a href="#id11"><span class="problematic" id="id12">|</span></a>img1
+<a href="#id13"><span class="problematic" id="id14">|</span></a>img2
+<a href="#id15"><span class="problematic" id="id16">|</span></a>..</p>
+</dd>
+</dl>
+<p><a href="#id17"><span class="problematic" id="id18">|</span></a>…
+:param image_size: the size at which the image is processed(width=height=image_size)
+:param batch_size: the size of the batch of the dataset
+:param raw_data_path: the path to the image folder
+:param validation_split: the proportion of the dataset that is kept for validation
+:return: Tuple - two datasets, first for train, second for validation</p>
+</dd></dl>
+
+</section>
+<section id="module-imageclassification.feature_extraction">
+<span id="feature-extraction"></span><h3>feature_extraction<a class="headerlink" href="#module-imageclassification.feature_extraction" title="Permalink to this heading"></a></h3>
+<dl class="py function">
+<dt class="sig sig-object py" id="imageclassification.feature_extraction.erase_classifier_layer">
+<span class="sig-prename descclassname"><span class="pre">imageclassification.feature_extraction.</span></span><span class="sig-name descname"><span class="pre">erase_classifier_layer</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">model</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Model</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Model</span></span></span><a class="headerlink" href="#imageclassification.feature_extraction.erase_classifier_layer" title="Permalink to this definition"></a></dt>
+<dd><p>Erases the classifier functional layer from a keras model</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>model</strong> – image classification keras model</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>keras model without the classification layer</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="imageclassification.feature_extraction.get_feature_extractor_from_saved_model">
+<span class="sig-prename descclassname"><span class="pre">imageclassification.feature_extraction.</span></span><span class="sig-name descname"><span class="pre">get_feature_extractor_from_saved_model</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">savepath</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Model</span></span></span><a class="headerlink" href="#imageclassification.feature_extraction.get_feature_extractor_from_saved_model" title="Permalink to this definition"></a></dt>
+<dd><p>Returns a model without the classifier functional layer</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>savepath</strong> – str, path to a saved keras model</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>keras model that doesn’t contain a classifier layer</p>
+</dd>
+</dl>
+</dd></dl>
+
+</section>
+<section id="module-imageclassification.image_types">
+<span id="image-types"></span><h3>image_types<a class="headerlink" href="#module-imageclassification.image_types" title="Permalink to this heading"></a></h3>
+<dl class="py class">
+<dt class="sig sig-object py" id="imageclassification.image_types.DataPreprocessor">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">imageclassification.image_types.</span></span><span class="sig-name descname"><span class="pre">DataPreprocessor</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#imageclassification.image_types.DataPreprocessor" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="imageclassification.image_types.ModelConfiguration">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">imageclassification.image_types.</span></span><span class="sig-name descname"><span class="pre">ModelConfiguration</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">model_type_name</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">is_pretrained</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">train_layers_keywords</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Tuple</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="p"><span class="pre">...</span></span><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#imageclassification.image_types.ModelConfiguration" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="imageclassification.image_types.ModelInstantiator">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">imageclassification.image_types.</span></span><span class="sig-name descname"><span class="pre">ModelInstantiator</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#imageclassification.image_types.ModelInstantiator" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+</section>
+<section id="module-imageclassification.train_models">
+<span id="train-models"></span><h3>train_models<a class="headerlink" href="#module-imageclassification.train_models" title="Permalink to this heading"></a></h3>
+<dl class="py function">
+<dt class="sig sig-object py" id="imageclassification.train_models.get_models">
+<span class="sig-prename descclassname"><span class="pre">imageclassification.train_models.</span></span><span class="sig-name descname"><span class="pre">get_models</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">img_size</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">data_folder</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">models</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Tuple</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="#imageclassification.image_types.ModelConfiguration" title="imageclassification.image_types.ModelConfiguration"><span class="pre">ModelConfiguration</span></a><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="p"><span class="pre">...</span></span><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">epochs</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">20</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">batch_size</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">128</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#imageclassification.train_models.get_models" title="Permalink to this definition"></a></dt>
+<dd><p>Creates and trains multiple image classification models that are configured using
+the ModelConfiguration protocol
+training folder has to have the folder structure
+label1
+|   img1
+|   img2
+|   …
+label2
+|   img1
+|   img2
+|   …
+…
+labeln
+|   img1
+|   img2
+|   …</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>img_size</strong> – int, all images are (img_size, img_size, 3)</p></li>
+<li><p><strong>data_folder</strong> – str, path to where the pictures are</p></li>
+<li><p><strong>models</strong> – list of ModelConfiguration</p></li>
+<li><p><strong>epochs</strong> – int, number of epochs used for training</p></li>
+<li><p><strong>batch_size</strong> – int, batch size used for training</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>None</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="imageclassification.train_models.train_model">
+<span class="sig-prename descclassname"><span class="pre">imageclassification.train_models.</span></span><span class="sig-name descname"><span class="pre">train_model</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">model</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#imageclassification.create_models.ModelWithInfo" title="imageclassification.create_models.ModelWithInfo"><span class="pre">ModelWithInfo</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">train_dataset</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">DatasetV2</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">validate_dataset</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">DatasetV2</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">batch_size</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">128</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">epochs</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">20</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">logs_folder</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'logs'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">model_folders</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'models'</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#imageclassification.create_models.ModelWithInfo" title="imageclassification.create_models.ModelWithInfo"><span class="pre">ModelWithInfo</span></a></span></span><a class="headerlink" href="#imageclassification.train_models.train_model" title="Permalink to this definition"></a></dt>
+<dd><p>Trains a model using a given dataset and validation set</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>model</strong> – ModelWithInfo</p></li>
+<li><p><strong>train_dataset</strong> – training image dataset</p></li>
+<li><p><strong>validate_dataset</strong> – validation dataset</p></li>
+<li><p><strong>batch_size</strong> – int</p></li>
+<li><p><strong>epochs</strong> – int</p></li>
+<li><p><strong>logs_folder</strong> – str, path where it should output the logs</p></li>
+<li><p><strong>model_folders</strong> – str, path where it should save the logs</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p></p>
+</dd>
+</dl>
+</dd></dl>
+
+</section>
+</section>
+<section id="textclassification">
+<h2>textclassification<a class="headerlink" href="#textclassification" title="Permalink to this heading"></a></h2>
+<section id="module-textclassification.common.classifier">
+<span id="common"></span><h3>common<a class="headerlink" href="#module-textclassification.common.classifier" title="Permalink to this heading"></a></h3>
+<dl class="py function">
+<dt class="sig sig-object py" id="textclassification.common.classifier.create_classifier">
+<span class="sig-prename descclassname"><span class="pre">textclassification.common.classifier.</span></span><span class="sig-name descname"><span class="pre">create_classifier</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">model_name</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">input_dim</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dense_layers</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Tuple</span><span class="p"><span class="pre">[</span></span><span class="pre">int</span><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">no_labels</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Model</span></span></span><a class="headerlink" href="#textclassification.common.classifier.create_classifier" title="Permalink to this definition"></a></dt>
+<dd><p>Creates a keras Model that can be used as a classifier on top of a feature extractor</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>model_name</strong> – str - name of the classifier and its layers</p></li>
+<li><p><strong>input_dim</strong> – int - number of input features</p></li>
+<li><p><strong>dense_layers</strong> – List of int - number of neurons in each dense layer</p></li>
+<li><p><strong>no_labels</strong> – int - number of labels, also the number of neurons of a softmax layer(last layer)</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Keras model used of classification</p>
+</dd>
+</dl>
+</dd></dl>
+
+<span class="target" id="module-textclassification.common.common_types"></span><dl class="py class">
+<dt class="sig sig-object py" id="textclassification.common.common_types.GensimEmbeddingLayerGenerator">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">textclassification.common.common_types.</span></span><span class="sig-name descname"><span class="pre">GensimEmbeddingLayerGenerator</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#textclassification.common.common_types.GensimEmbeddingLayerGenerator" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<span class="target" id="module-textclassification.common.datapreprocessing"></span><dl class="py function">
+<dt class="sig sig-object py" id="textclassification.common.datapreprocessing.clean_text">
+<span class="sig-prename descclassname"><span class="pre">textclassification.common.datapreprocessing.</span></span><span class="sig-name descname"><span class="pre">clean_text</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">text</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Any</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">language</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">stem_function</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Callable</span><span class="p"><span class="pre">[</span></span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">str</span><span class="p"><span class="pre">]</span></span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">str</span></span></span><a class="headerlink" href="#textclassification.common.datapreprocessing.clean_text" title="Permalink to this definition"></a></dt>
+<dd><p>Erases html tags, lowercases string, erases stopwords</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>stem_function</strong> – </p></li>
+<li><p><strong>text</strong> – </p></li>
+<li><p><strong>language</strong> – </p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="textclassification.common.datapreprocessing.concatenate_text_columns">
+<span class="sig-prename descclassname"><span class="pre">textclassification.common.datapreprocessing.</span></span><span class="sig-name descname"><span class="pre">concatenate_text_columns</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">df</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">DataFrame</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">text_columns</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Series</span></span></span><a class="headerlink" href="#textclassification.common.datapreprocessing.concatenate_text_columns" title="Permalink to this definition"></a></dt>
+<dd><p>Concatenates columns specified in text_columns</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>df</strong> – pandas Dataframe which has to include columns in text_columns</p></li>
+<li><p><strong>text_columns</strong> – columns to be concatenated</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>pandas Series which contains the concatenated columns</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="textclassification.common.datapreprocessing.preprocess_csv">
+<span class="sig-prename descclassname"><span class="pre">textclassification.common.datapreprocessing.</span></span><span class="sig-name descname"><span class="pre">preprocess_csv</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">filename</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">concat_columns</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">category_column</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">text_columns</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">category_map</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Dict</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">stem_function</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Callable</span><span class="p"><span class="pre">[</span></span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">str</span><span class="p"><span class="pre">]</span></span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">tuple</span><span class="p"><span class="pre">[</span></span><span class="pre">pandas.core.frame.DataFrame</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">Union</span><span class="p"><span class="pre">[</span></span><span class="pre">dict</span><span class="p"><span class="pre">[</span></span><span class="pre">Any</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">int</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">dict</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">DataFrame</span></span></span><a class="headerlink" href="#textclassification.common.datapreprocessing.preprocess_csv" title="Permalink to this definition"></a></dt>
+<dd><p>Creates a pandas dataframe which has two columns: Text and Category. Text has the input data for training, Category has the label
+e.g. csv_file =
+<a href="#id31"><span class="problematic" id="id32">|col1 | col2|</span></a> cat|
+<a href="#id33"><span class="problematic" id="id34">|text1|text2|cat1|</span></a>
+<a href="#id35"><span class="problematic" id="id36">|text3|text4|cat2|</span></a>
+concat_columns = True, text_columns=[‘col1’, ‘col2’]
+result=
+<a href="#id37"><span class="problematic" id="id38">|Text                                                                    |Category|</span></a>
+<a href="#id19"><span class="problematic" id="id20">|</span></a>text1&lt;STOP&gt; &lt;STOP&gt; &lt;STOP&gt; &lt;STOP&gt; &lt;STOP&gt; &lt;STOP&gt; &lt;STOP&gt; &lt;STOP&gt; &lt;STOP&gt;text2|cat1    |
+<a href="#id21"><span class="problematic" id="id22">|</span></a>text3&lt;STOP&gt; &lt;STOP&gt; &lt;STOP&gt; &lt;STOP&gt; &lt;STOP&gt; &lt;STOP&gt; &lt;STOP&gt; &lt;STOP&gt; &lt;STOP&gt;text4|cat2    |</p>
+<p>concat_columns = False, text_columns=[‘col1’, ‘col2’]
+result=
+<a href="#id39"><span class="problematic" id="id40">|Text |Category|</span></a>
+<a href="#id23"><span class="problematic" id="id24">|</span></a>text1|cat1    |
+<a href="#id25"><span class="problematic" id="id26">|</span></a>text2|cat1    |
+<a href="#id27"><span class="problematic" id="id28">|</span></a>text3|cat2    |
+<a href="#id29"><span class="problematic" id="id30">|</span></a>text4|cat3    |</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>stem_function</strong> – </p></li>
+<li><p><strong>category_map</strong> – </p></li>
+<li><p><strong>filename</strong> – path for the csv_file</p></li>
+<li><p><strong>concat_columns</strong> – True if you want the text values in text_columns to be concatenated in Text column, False if you want to add a new row for each text value in the columns</p></li>
+<li><p><strong>category_column</strong> – column which will be mapped to column Category in the result</p></li>
+<li><p><strong>text_columns</strong> – text columns which will be used to create the Text column</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>pandas Dataframe</p>
+</dd>
+</dl>
+</dd></dl>
+
+<span class="target" id="module-textclassification.common.datasetgeneration"></span><span class="target" id="module-textclassification.common.featureextraction"></span><dl class="py function">
+<dt class="sig sig-object py" id="textclassification.common.featureextraction.get_feature_extractor_from_model">
+<span class="sig-prename descclassname"><span class="pre">textclassification.common.featureextraction.</span></span><span class="sig-name descname"><span class="pre">get_feature_extractor_from_model</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">model</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Model</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Model</span></span></span><a class="headerlink" href="#textclassification.common.featureextraction.get_feature_extractor_from_model" title="Permalink to this definition"></a></dt>
+<dd><p>Creates a model that doesn’t contain the functional layer called classifier</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>model</strong> – Keras model that should contain a functional layer called classifier</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Keras model without the classifier</p>
+</dd>
+</dl>
+</dd></dl>
+
+<span class="target" id="module-textclassification.common.wordembeddings"></span><dl class="py function">
+<dt class="sig sig-object py" id="textclassification.common.wordembeddings.get_embedding_and_vocabulary_from_keyed_vectors">
+<span class="sig-prename descclassname"><span class="pre">textclassification.common.wordembeddings.</span></span><span class="sig-name descname"><span class="pre">get_embedding_and_vocabulary_from_keyed_vectors</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">keyed_vectors</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">KeyedVectors</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">layer_name</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Tuple</span><span class="p"><span class="pre">[</span></span><span class="pre">Embedding</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#textclassification.common.wordembeddings.get_embedding_and_vocabulary_from_keyed_vectors" title="Permalink to this definition"></a></dt>
+<dd><p>Creates a Keras embedding layer and a Vocabulary from a Gensim KeyedVectors object</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>keyed_vectors</strong> – Gensim KeyedVectors object</p></li>
+<li><p><strong>layer_name</strong> – str - name for the embedding layer</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Keras Embedding layer and corresponding vocabulary</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="textclassification.common.wordembeddings.get_embedding_layer_and_vocab">
+<span class="sig-prename descclassname"><span class="pre">textclassification.common.wordembeddings.</span></span><span class="sig-name descname"><span class="pre">get_embedding_layer_and_vocab</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">model_type</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">pretrained_model_path</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">train_corpus_path</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">layer_name</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">vector_size</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">save_path</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">stem_function</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Callable</span><span class="p"><span class="pre">[</span></span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">str</span><span class="p"><span class="pre">]</span></span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Tuple</span><span class="p"><span class="pre">[</span></span><span class="pre">Embedding</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#textclassification.common.wordembeddings.get_embedding_layer_and_vocab" title="Permalink to this definition"></a></dt>
+<dd><p>Creates an embedding layer and Vocabulary based on a pretrained model and/or a train corpus path
+(each sentence/separate context is on a new line) using a word embedding learning algo(Word2Vec/Fasttext)
+If both pretrained_model_path and train_corpus_path are provided, then the gensim model will be further
+trained using the file provided</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>model_type</strong> – str - word2vec or fasttext</p></li>
+<li><p><strong>pretrained_model_path</strong> – str or None - path to a saved gensim model</p></li>
+<li><p><strong>train_corpus_path</strong> – str - path to a text file where each sentence(separate context) is on a new line</p></li>
+<li><p><strong>layer_name</strong> – str - name for the embedding layer</p></li>
+<li><p><strong>vector_size</strong> – int - size of the word embeddings</p></li>
+<li><p><strong>save_path</strong> – str - path where the gensim model is saved</p></li>
+<li><p><strong>stem_function</strong> – function to get the stem of a word</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Keras Embedding layer and corresponding vocabulary</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="textclassification.common.wordembeddings.get_embedding_layer_from_weights">
+<span class="sig-prename descclassname"><span class="pre">textclassification.common.wordembeddings.</span></span><span class="sig-name descname"><span class="pre">get_embedding_layer_from_weights</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">weights</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">ndarray</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">layer_name</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Embedding</span></span></span><a class="headerlink" href="#textclassification.common.wordembeddings.get_embedding_layer_from_weights" title="Permalink to this definition"></a></dt>
+<dd><p>Get embedding layer from a weights ~matrix~: each line is an embedding vector</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>weights</strong> – np.ndarray - an array of embedding vectors</p></li>
+<li><p><strong>layer_name</strong> – str - the name of the Keras embedding layer</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Keras embedding layer</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="textclassification.common.wordembeddings.get_gensim_fasttext_embedding_layer">
+<span class="sig-prename descclassname"><span class="pre">textclassification.common.wordembeddings.</span></span><span class="sig-name descname"><span class="pre">get_gensim_fasttext_embedding_layer</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">pretrained_model_path</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sentences</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">layer_name</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">vector_size</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">save_path</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Tuple</span><span class="p"><span class="pre">[</span></span><span class="pre">Embedding</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#textclassification.common.wordembeddings.get_gensim_fasttext_embedding_layer" title="Permalink to this definition"></a></dt>
+<dd><p>Returns an Embedding layer and corresponding vocabulary using the Fasttext algorithm,
+based on a pretrained gensim model and/or a new corpus(sentences)</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>pretrained_model_path</strong> – str - path to a file containing a training corpus</p></li>
+<li><p><strong>sentences</strong> – List of sentences, which are a list of words</p></li>
+<li><p><strong>layer_name</strong> – str - name of the embedding layer</p></li>
+<li><p><strong>vector_size</strong> – int</p></li>
+<li><p><strong>save_path</strong> – str - path where the gensim model will be saved</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Keras embedding layer and corresponding Vocabulary</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="textclassification.common.wordembeddings.get_gensim_word2vec_embedding_layer">
+<span class="sig-prename descclassname"><span class="pre">textclassification.common.wordembeddings.</span></span><span class="sig-name descname"><span class="pre">get_gensim_word2vec_embedding_layer</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">pretrained_model_path</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sentences</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">layer_name</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">vector_size</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">save_path</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Tuple</span><span class="p"><span class="pre">[</span></span><span class="pre">Embedding</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#textclassification.common.wordembeddings.get_gensim_word2vec_embedding_layer" title="Permalink to this definition"></a></dt>
+<dd><p>Returns an Embedding layer and corresponding vocabulary using the Word2Vec algorithm,
+based on a pretrained gensim model and/or a new corpus(sentences)</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>pretrained_model_path</strong> – str - path to a file containing a training corpus</p></li>
+<li><p><strong>sentences</strong> – List of sentences, which are a list of words</p></li>
+<li><p><strong>layer_name</strong> – str - name of the embedding layer</p></li>
+<li><p><strong>vector_size</strong> – int</p></li>
+<li><p><strong>save_path</strong> – str - path where the gensim model will be saved</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Keras embedding layer and corresponding Vocabulary</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="textclassification.common.wordembeddings.get_list_of_sentences_from_txt_file">
+<span class="sig-prename descclassname"><span class="pre">textclassification.common.wordembeddings.</span></span><span class="sig-name descname"><span class="pre">get_list_of_sentences_from_txt_file</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">filepath</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">stem_function</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Callable</span><span class="p"><span class="pre">[</span></span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#textclassification.common.wordembeddings.get_list_of_sentences_from_txt_file" title="Permalink to this definition"></a></dt>
+<dd><p>Considers that each line in file located at filepath is a sentence,
+parses(lowercase and splits at space) and stems each word</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>filepath</strong> – str, location where the file of the corpus is</p></li>
+<li><p><strong>stem_function</strong> – function that stems a word</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>a list of lists of words -</p>
+</dd>
+</dl>
+<p>outer list is the sentences, each list inside it is a parsed and processed sentence</p>
+</dd></dl>
+
+</section>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="configuration.html" class="btn btn-neutral float-left" title="Configuration" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2023, cipri.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

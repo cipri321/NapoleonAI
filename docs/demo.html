@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Demo &mdash; multimodal 0.0.1 documentation</title>
+      <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+        <script src="_static/doctools.js"></script>
+        <script src="_static/sphinx_highlight.js"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="prev" title="Usage" href="usage.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="index.html" class="icon icon-home">
+            multimodal
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="usage.html">Usage</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Demo</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">multimodal</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Demo</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/demo.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="demo">
+<h1>Demo<a class="headerlink" href="#demo" title="Permalink to this heading"></a></h1>
+<blockquote>
+<div><p>This is an example of multimodal classification based on already existing text and image feature extractors</p>
+</div></blockquote>
+<ol class="arabic simple">
+<li><p>Code to use the run method of a Napoleon object with a yml configuration file</p></li>
+</ol>
+<div class="highlight-python3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">napoleon</span> <span class="kn">import</span> <span class="n">Napoleon</span>
+<span class="n">napoleon_instance</span> <span class="o">=</span> <span class="n">Napoleon</span><span class="p">()</span>
+<span class="n">napoleon_instance</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="s1">&#39;path_to_yml_configuration&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<ol class="arabic simple" start="2">
+<li><p>Configuration file example</p></li>
+</ol>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">task</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">multimodal classification</span>
+<span class="nt">data</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">training_file</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">PATH_TO_TRAINING_FILE</span>
+<span class="w">  </span><span class="nt">test_file</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">PATH_TO_TEST_FILE</span>
+<span class="w">  </span><span class="nt">inference_file</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">PATH_TO_INFERENCE_FILE</span>
+<span class="w">  </span><span class="nt">inference_results</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">PATH_TO_INFERENCE_RESULTS</span>
+<span class="w">  </span><span class="nt">category_column</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Category</span>
+<span class="w">  </span><span class="nt">category_map</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">PATH_TO_A_CATEGORY_MAPPING_FILE</span>
+<span class="w">  </span><span class="nt">language</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">french</span>
+<span class="w">  </span><span class="nt">images_path</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">ROOT_FOLDER_FOR_IMAGES</span>
+<span class="nt">modes</span><span class="p">:</span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">model</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">PATH_TO_TENSORFLOW_TEXT_CLASSIFICATION_MODEL</span>
+<span class="w">    </span><span class="nt">is_feature_extractor</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">false</span>
+<span class="w">    </span><span class="nt">type</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">text</span>
+<span class="w">    </span><span class="nt">data_column</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Title</span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">model</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">PATH_TO_TENSORFLOW_TEXT_FEATURE_EXTRACTOR</span>
+<span class="w">    </span><span class="nt">is_feature_extractor</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
+<span class="w">    </span><span class="nt">type</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">text</span>
+<span class="w">    </span><span class="nt">data_column</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Description</span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">model</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">PATH_TO_TENSORFLOW_IMAGE_CLASSIFICATION_MODEL</span>
+<span class="w">    </span><span class="nt">is_feature_extractor</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">false</span>
+<span class="w">    </span><span class="nt">type</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">image</span>
+<span class="w">    </span><span class="nt">data_column</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">ImagePath</span>
+<span class="nt">epochs</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1</span>
+<span class="nt">batch_size</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">128</span>
+<span class="nt">save_path</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">PATH_WHERE_THE_MODEL_SHOULD_BE_SAVED</span>
+</pre></div>
+</div>
+<ol class="arabic simple" start="3">
+<li><p>Input data CSV file excerpt</p></li>
+</ol>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>Title</p></th>
+<th class="head"><p>Description</p></th>
+<th class="head"><p>ImageName</p></th>
+<th class="head"><p>Category</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Bleu Gamepad Nintendo Wii U</p></td>
+<td><p>PILOT STYLE Touch Pen de marque Speedlink est 1 stylet 2</p></td>
+<td><p>image_938777978_product_201115110.jpg</p></td>
+<td><p>50</p></td>
+</tr>
+</tbody>
+</table>
+<ol class="arabic simple" start="4">
+<li><p>Manually using functions in the Napoleon library</p></li>
+</ol>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">import</span> <span class="nn">tensorflow</span> <span class="k">as</span> <span class="nn">tf</span>
+<span class="kn">from</span> <span class="nn">nltk.stem.snowball</span> <span class="kn">import</span> <span class="n">FrenchStemmer</span>
+
+<span class="kn">from</span> <span class="nn">common.categorymapping</span> <span class="kn">import</span> <span class="n">get_category_mapping_from_file</span>
+<span class="kn">from</span> <span class="nn">textclassification.common.datapreprocessing</span> <span class="kn">import</span> <span class="n">preprocess_csv</span>
+<span class="kn">from</span> <span class="nn">textclassification.common.featureextraction</span> <span class="kn">import</span> <span class="n">get_feature_extractor_from_model</span>
+<span class="kn">from</span> <span class="nn">multimodalclassification.model.model</span> <span class="kn">import</span> <span class="n">get_multimodal_classification_model</span>
+<span class="kn">from</span> <span class="nn">multimodalclassification.dataprocessing.datasetgeneration</span> <span class="kn">import</span> <span class="n">create_multimodal_dataset</span>
+
+
+<span class="k">def</span> <span class="nf">multimodal_experiment</span><span class="p">():</span>
+    <span class="n">stem_function</span> <span class="o">=</span> <span class="n">FrenchStemmer</span><span class="p">()</span><span class="o">.</span><span class="n">stem</span>
+
+    <span class="n">cat_map</span><span class="p">,</span> <span class="n">no_labels</span> <span class="o">=</span> <span class="n">get_category_mapping_from_file</span><span class="p">(</span>
+        <span class="s1">&#39;/Users/cipri/PycharmProjects/coreLicenta/assets/trainingdata/rakuten_category_map&#39;</span><span class="p">)</span>
+
+    <span class="n">description_model</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">keras</span><span class="o">.</span><span class="n">models</span><span class="o">.</span><span class="n">load_model</span><span class="p">(</span><span class="s1">&#39;saved/models/rnn/description_word2vec_256_rnn&#39;</span><span class="p">)</span>
+    <span class="n">title_model</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">keras</span><span class="o">.</span><span class="n">models</span><span class="o">.</span><span class="n">load_model</span><span class="p">(</span><span class="s1">&#39;saved/models/rnn/title_word2vec_256_rnn&#39;</span><span class="p">)</span>
+
+    <span class="n">title_feature_extractor</span> <span class="o">=</span> <span class="n">get_feature_extractor_from_model</span><span class="p">(</span><span class="n">title_model</span><span class="p">)</span>
+    <span class="n">description_feature_extractor</span> <span class="o">=</span> <span class="n">get_feature_extractor_from_model</span><span class="p">(</span><span class="n">description_model</span><span class="p">)</span>
+
+    <span class="n">multi</span> <span class="o">=</span> <span class="n">get_multimodal_classification_model</span><span class="p">(</span>
+        <span class="p">[</span><span class="n">title_feature_extractor</span><span class="p">,</span> <span class="n">description_feature_extractor</span><span class="p">],</span>
+        <span class="p">[],</span>
+        <span class="mi">27</span>
+    <span class="p">)</span>
+
+    <span class="n">df_train</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;/Users/cipri/PycharmProjects/coreLicenta/assets/trainingdata/rakuten_train.csv&#39;</span><span class="p">)</span>
+
+    <span class="n">df_test</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;/Users/cipri/PycharmProjects/coreLicenta/assets/trainingdata/rakuten_test.csv&#39;</span><span class="p">)</span>
+
+    <span class="n">df_text_train</span> <span class="o">=</span> <span class="n">preprocess_csv</span><span class="p">(</span>
+        <span class="s1">&#39;/Users/cipri/PycharmProjects/coreLicenta/assets/trainingdata/rakuten_train.csv&#39;</span><span class="p">,</span>
+        <span class="n">concat_columns</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+        <span class="n">category_column</span><span class="o">=</span><span class="s1">&#39;Category&#39;</span><span class="p">,</span>
+        <span class="n">text_columns</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;Description&#39;</span><span class="p">],</span>
+        <span class="n">category_map</span><span class="o">=</span><span class="n">cat_map</span><span class="p">,</span>
+        <span class="n">stem_function</span><span class="o">=</span><span class="n">stem_function</span>
+    <span class="p">)</span>
+    <span class="n">df_train</span><span class="p">[</span><span class="s1">&#39;Description&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">df_text_train</span><span class="p">[</span><span class="s1">&#39;Text&#39;</span><span class="p">]</span>
+
+    <span class="n">df_text_test</span> <span class="o">=</span> <span class="n">preprocess_csv</span><span class="p">(</span>
+        <span class="s1">&#39;/Users/cipri/PycharmProjects/coreLicenta/assets/trainingdata/rakuten_test.csv&#39;</span><span class="p">,</span>
+        <span class="n">concat_columns</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+        <span class="n">category_column</span><span class="o">=</span><span class="s1">&#39;Category&#39;</span><span class="p">,</span>
+        <span class="n">text_columns</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;Description&#39;</span><span class="p">],</span>
+        <span class="n">category_map</span><span class="o">=</span><span class="n">cat_map</span><span class="p">,</span>
+        <span class="n">stem_function</span><span class="o">=</span><span class="n">stem_function</span>
+    <span class="p">)</span>
+    <span class="n">df_test</span><span class="p">[</span><span class="s1">&#39;Description&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">df_text_test</span><span class="p">[</span><span class="s1">&#39;Text&#39;</span><span class="p">]</span>
+
+    <span class="n">df_text_train</span> <span class="o">=</span> <span class="n">preprocess_csv</span><span class="p">(</span>
+        <span class="s1">&#39;/Users/cipri/PycharmProjects/coreLicenta/assets/trainingdata/rakuten_train.csv&#39;</span><span class="p">,</span>
+        <span class="n">concat_columns</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+        <span class="n">category_column</span><span class="o">=</span><span class="s1">&#39;Category&#39;</span><span class="p">,</span>
+        <span class="n">text_columns</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;Title&#39;</span><span class="p">],</span>
+        <span class="n">category_map</span><span class="o">=</span><span class="n">cat_map</span><span class="p">,</span>
+        <span class="n">stem_function</span><span class="o">=</span><span class="n">stem_function</span>
+    <span class="p">)</span>
+    <span class="n">df_train</span><span class="p">[</span><span class="s1">&#39;Title&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">df_text_train</span><span class="p">[</span><span class="s1">&#39;Text&#39;</span><span class="p">]</span>
+
+    <span class="n">df_text_test</span> <span class="o">=</span> <span class="n">preprocess_csv</span><span class="p">(</span>
+        <span class="s1">&#39;/Users/cipri/PycharmProjects/coreLicenta/assets/trainingdata/rakuten_test.csv&#39;</span><span class="p">,</span>
+        <span class="n">concat_columns</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+        <span class="n">category_column</span><span class="o">=</span><span class="s1">&#39;Category&#39;</span><span class="p">,</span>
+        <span class="n">text_columns</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;Title&#39;</span><span class="p">],</span>
+        <span class="n">category_map</span><span class="o">=</span><span class="n">cat_map</span><span class="p">,</span>
+        <span class="n">stem_function</span><span class="o">=</span><span class="n">stem_function</span>
+    <span class="p">)</span>
+    <span class="n">df_test</span><span class="p">[</span><span class="s1">&#39;Title&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">df_text_test</span><span class="p">[</span><span class="s1">&#39;Text&#39;</span><span class="p">]</span>
+
+
+    <span class="n">dataset_train</span> <span class="o">=</span> <span class="n">create_multimodal_dataset</span><span class="p">(</span>
+        <span class="n">df_train</span><span class="p">,</span>
+        <span class="n">text_columns</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;Title&#39;</span><span class="p">,</span> <span class="s1">&#39;Description&#39;</span><span class="p">],</span>
+        <span class="n">image_columns</span><span class="o">=</span><span class="p">[],</span>
+        <span class="n">category_column</span><span class="o">=</span><span class="s1">&#39;Category&#39;</span><span class="p">,</span>
+        <span class="n">category_map</span><span class="o">=</span><span class="n">cat_map</span><span class="p">,</span>
+        <span class="n">one_hot</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+        <span class="n">images_path</span><span class="o">=</span><span class="s1">&#39;/Users/cipri/Downloads/archive (5)/images/images/image_train&#39;</span>
+    <span class="p">)</span>
+
+    <span class="n">dataset_test</span> <span class="o">=</span> <span class="n">create_multimodal_dataset</span><span class="p">(</span>
+        <span class="n">df_test</span><span class="p">,</span>
+        <span class="n">text_columns</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;Title&#39;</span><span class="p">,</span> <span class="s1">&#39;Description&#39;</span><span class="p">],</span>
+        <span class="n">image_columns</span><span class="o">=</span><span class="p">[],</span>
+        <span class="n">category_column</span><span class="o">=</span><span class="s1">&#39;Category&#39;</span><span class="p">,</span>
+        <span class="n">one_hot</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+        <span class="n">category_map</span><span class="o">=</span><span class="n">cat_map</span><span class="p">,</span>
+        <span class="n">images_path</span><span class="o">=</span><span class="s1">&#39;/Users/cipri/Downloads/archive (5)/images/images/image_train&#39;</span>
+    <span class="p">)</span>
+
+    <span class="n">multi</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span>
+        <span class="n">optimizer</span><span class="o">=</span><span class="n">tf</span><span class="o">.</span><span class="n">keras</span><span class="o">.</span><span class="n">optimizers</span><span class="o">.</span><span class="n">Adam</span><span class="p">(),</span>
+        <span class="n">metrics</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;accuracy&#39;</span><span class="p">,</span> <span class="n">tf</span><span class="o">.</span><span class="n">keras</span><span class="o">.</span><span class="n">metrics</span><span class="o">.</span><span class="n">Precision</span><span class="p">(),</span> <span class="n">tf</span><span class="o">.</span><span class="n">keras</span><span class="o">.</span><span class="n">metrics</span><span class="o">.</span><span class="n">Recall</span><span class="p">()],</span>
+        <span class="n">loss</span><span class="o">=</span><span class="s1">&#39;categorical_crossentropy&#39;</span><span class="p">,</span>
+        <span class="n">run_eagerly</span><span class="o">=</span><span class="kc">True</span>
+    <span class="p">)</span>
+    <span class="n">multi</span><span class="o">.</span><span class="n">summary</span><span class="p">()</span>
+
+    <span class="n">multi</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span>
+        <span class="n">dataset_train</span><span class="p">,</span>
+        <span class="n">epochs</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span>
+        <span class="n">workers</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span>
+        <span class="n">use_multiprocessing</span><span class="o">=</span><span class="kc">True</span>
+    <span class="p">)</span>
+
+    <span class="n">multi</span><span class="o">.</span><span class="n">evaluate</span><span class="p">(</span><span class="n">dataset_test</span><span class="p">)</span>
+</pre></div>
+</div>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="usage.html" class="btn btn-neutral float-left" title="Usage" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2023, cipri.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>
