@@ -1,5 +1,5 @@
 import logging
-from napoleonai.cli.cli import run
+from src.napoleonai.cli.cli import run
 
 
 def main():
