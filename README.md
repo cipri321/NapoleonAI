@@ -9,3 +9,7 @@ foo@bar:~$ python main.py configuration=configuration/textclassification.yml
 foo@bar:~$ python main.py configuration=configuration/multimodalclassification.yml
 
 ```
+
+
+# Docs
+[Read the docs](https://napoleonai.readthedocs.io/en/latest/index.html)
