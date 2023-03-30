@@ -1,0 +1,23 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+
+[project]
+name = "napoleonai"
+version = "0.0.11"
+authors = [
+  { name="Ciprian Marin", email="ciprian.marin@protonmail.com" },
+]
+description = "Declarative Text, Image and Multi-modal Tensorflow models"
+readme = "README.md"
+requires-python = ">=3.7"
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+]
+
+[project.urls]
+"Homepage" = "https://github.com/cipri321/NapoleonAI"
+"Bug Tracker" = "https://github.com/cipri321/NapoleonAI/issues"

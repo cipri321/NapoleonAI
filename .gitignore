@@ -133,6 +133,9 @@ saved/
 assets/trainingdata/french_corpus_ecommerce
 assets/trainingdata/french_unsupervised_books.txt
 
+docs/
 
+make.bat
+Makefile
 
 
