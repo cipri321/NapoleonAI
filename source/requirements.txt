@@ -1,0 +1,10 @@
+numpy
+tqdm
+nltk
+pandas
+matplotlib
+gensim
+beautifulsoup4
+PyYAML
+Pillow
+tensorflow
