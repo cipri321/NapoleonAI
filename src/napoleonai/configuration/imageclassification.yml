@@ -6,6 +6,6 @@ train_layers_keywords:
   - top
   - block6
 data:
-  train_folder: /Users/cipri/PycharmProjects/MultiModalClassification/images_train_rakuten
+  train_folder: SOME_TRAIN_FOLDER
   img_size: 224
 epochs: 1
