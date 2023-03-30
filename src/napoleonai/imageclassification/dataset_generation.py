@@ -1,7 +1,5 @@
 import pathlib
 from typing import Tuple
-
-import numpy
 import tensorflow as tf
 from tqdm import tqdm
 import numpy as np
