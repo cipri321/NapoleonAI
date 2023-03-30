@@ -17,6 +17,18 @@ classifiers = [
     "License :: OSI Approved :: MIT License",
     "Operating System :: OS Independent",
 ]
+dependencies = [
+    "numpy",
+    "tqdm",
+    "nltk",
+    "pandas",
+    "matplotlib",
+    "gensim",
+    "beautifulsoup4",
+    "PyYAML",
+    "Pillow",
+    "tensorflow"
+]
 
 [project.urls]
 "Homepage" = "https://github.com/cipri321/NapoleonAI"
