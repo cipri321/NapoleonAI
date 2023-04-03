@@ -5,8 +5,8 @@ model_name: rnn_lstm_model
 train_corpus_path: assets/trainingdata/french_corpus_ecommerce
 #pretrained_model_path: saved/models/rnn/title_256_rnn
 data:
-  training_file: assets/trainingdata/rakuten_train.csv
-  test_file: assets/trainingdata/rakuten_test.csv
+  training_file: assets/trainingdata/rakuten_train_sample.csv
+  test_file: assets/trainingdata/rakuten_test_sample.csv
   category_mapping: assets/trainingdata/rakuten_category_map
   no_labels: 27
   concat_columns: true

@@ -1,8 +1,8 @@
 task: multimodal classification
 data:
-  training_file: assets/trainingdata/rakuten_train.csv
-  test_file: assets/trainingdata/rakuten_test.csv
-  inference_file: assets/trainingdata/rakuten_test.csv
+  training_file: assets/trainingdata/rakuten_train_sample.csv
+  test_file: assets/trainingdata/rakuten_test_sample.csv
+  inference_file: assets/trainingdata/rakuten_test_sample.csv
   inference_results: results/rakuten_inference_results.csv
   category_column: Category
   category_map: assets/trainingdata/rakuten_category_map
