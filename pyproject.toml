@@ -27,7 +27,8 @@ dependencies = [
     "beautifulsoup4",
     "PyYAML",
     "Pillow",
-    "tensorflow"
+    'tensorflow ; platform_system != "Darwin"',
+    'tensorflow-macos ; platform_system == "Darwin"'
 ]
 
 [project.urls]
