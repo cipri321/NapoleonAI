@@ -1,6 +1,7 @@
 import logging
 from src.napoleonai.cli.cli import run
 
+# test comment
 
 def main():
     logging.basicConfig(level=logging.INFO)
