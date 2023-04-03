@@ -14,7 +14,7 @@ foo@bar:~$ python main.py configuration=configuration/multimodalclassification.y
 
 The training data used in the examples is available on [Kaggle](https://www.kaggle.com/datasets/moussasacko/rakuten-france-multimodal-product-classification)
 
-It was first used in the [Rakuten 2020 data challenge](https://rit.rakuten.com/news/2021/rakuten-france-multi-modal-product-dataset-now-available-at-rakuten-data-release/), but it is not currently available on their website
+It was first used in the [Sigir 2020 E-Commerce Workshop Data Challenge](https://rit.rakuten.com/news/2021/rakuten-france-multi-modal-product-dataset-now-available-at-rakuten-data-release/), but it is not currently available on their website
 
 
 # Docs
