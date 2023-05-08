@@ -1,22 +1,22 @@
 task: text classification
 type: rnn
 rnn_cell: lstm
-model_name: rnn_lstm_title_sample
+model_name: rnn_lstm_title_128_high_amazon
 train_corpus_path: assets/languagecorpora/french_corpus.txt
 #pretrained_model_path: saved/models/rnn/title_256_rnn
 data:
-  training_file: assets/trainingdata/rakuten_train_sample.csv
-  test_file: assets/trainingdata/rakuten_test_sample.csv
-  category_mapping: assets/trainingdata/rakuten_category_map
-  no_labels: 27
+  training_file: /Users/cipri/PycharmProjects/createAllShops/amazon_train.csv
+  test_file: /Users/cipri/PycharmProjects/createAllShops/amazon_test.csv
+  category_mapping: /Users/cipri/PycharmProjects/createAllShops/cat_map.txt
+  no_labels: 25
   concat_columns: true
   text_columns:
-    - Title
-  category_column: Category
-  category_map: assets/trainingdata/rakuten_category_map
-  language: french
+    - title
+  category_column: category
+  category_map: /Users/cipri/PycharmProjects/createAllShops/cat_map.txt
+  language: english
 rnn_layer_sizes:
-  - 32
+  - 256
 dense_layer_sizes:
   - 128
   - 32
@@ -28,7 +28,7 @@ language: french
 optimizer: 'adam'
 batch_size: 128
 loss: 'categorical_crossentropy'
-save_path: saved/models/rnn/title_128_rnn_lstm_sample
+save_path: saved/models/rnn/title_128_rnn_lstm_high_amazon
 
 
 

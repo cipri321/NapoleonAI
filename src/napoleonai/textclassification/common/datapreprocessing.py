@@ -93,7 +93,8 @@ def preprocess_csv(
     if concat_columns:
         df['Text'] = concatenate_text_columns(df, text_columns)
         if category_column:
-            df = df[[category_column, 'Text']]
+            df['Category'] = df[category_column]
+            df = df[['Text', 'Category']]
         else:
             df = df[['Text']]
         df['Text'] = df['Text'].apply(lambda x: clean_text(x, language='french', stem_function=stem_function))
