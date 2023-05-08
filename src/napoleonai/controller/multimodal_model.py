@@ -238,12 +238,17 @@ def create_multimodal_classification_model(configuration) -> tf.keras.Model:
             res = multi_model(i)
             results += list(res)
         # results = multi_model.predict(multi_inference_ds)
-        res_df = pd.DataFrame(
-            data={'Cat. Probs.': [' '.join(get_ordered_categories(res, cat_map)) for res in results]}
-        )
+        if configuration['data']['inference_results'] == 'return_only':
+            inference_results = [get_ordered_categories(res, cat_map) for res in results]
+        else:
+            res_df = pd.DataFrame(
+                data={'Cat. Probs.': [' '.join(get_ordered_categories(res, cat_map)) for res in results]}
+            )
 
-        res_df.to_csv(configuration['data']['inference_results'])
+            res_df.to_csv(configuration['data']['inference_results'])
     if 'save_path' in configuration:
         multi_model.save(configuration['save_path'])
 
+    if inference_results:
+        return multi_model, inference_results
     return multi_model
