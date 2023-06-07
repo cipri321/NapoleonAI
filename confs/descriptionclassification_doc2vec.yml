@@ -1,0 +1,26 @@
+task: text classification
+type: doc2vec
+model_name: doc2vec_model_title
+data:
+  training_file: assets/trainingdata/rakuten_train.csv
+  test_file: assets/trainingdata/rakuten_test.csv
+  category_mapping: assets/trainingdata/rakuten_category_map
+  no_labels: 27
+  concat_columns: true
+  text_columns:
+    - Title
+  category_column: Category
+  category_map: assets/trainingdata/rakuten_category_map
+  language: french
+dense_layer_sizes:
+  - 128
+  - 32
+epochs: 10
+language: french
+optimizer: 'adam'
+batch_size: 128
+loss: 'categorical_crossentropy'
+save_path: saved/models/doc2vec/title_doc2vec
+
+
+

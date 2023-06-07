@@ -136,6 +136,7 @@ assets/trainingdata/rakuten.csv
 assets/trainingdata/rakuten_train.csv
 assets/trainingdata/rakuten_test.csv
 assets/languagecorpora/french_corpus.txt
+assets/trainingdata/some_sample.csv
 
 docs/
 
@@ -147,3 +148,5 @@ Makefile
 git-filter-repo
 
 src/napoleonai/configuration/*.yml
+
+results/

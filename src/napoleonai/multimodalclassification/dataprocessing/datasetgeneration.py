@@ -42,13 +42,15 @@ def create_multimodal_dataset(
         category_column: Optional[str],
         category_map: Optional[Dict],
         images_path=None,
-        one_hot: bool = False
+        one_hot: bool = False,
+        image_size: Tuple[int, int] = (DEFAULT_IMAGE_SIZE, DEFAULT_IMAGE_SIZE)
 ) -> tuple[tuple, tuple]:
     """
     Creates a multimodal dataset based on the given text and image columns
     It reads images from disk and converts them to tensors
     It can create either sparse or one_hot labels
 
+    :param image_size: size of the images to be resized
     :param df: Dataframe, which contains the complete text data and the locations of images relative to images_path
     :param text_columns: names of the columns which contain text
     :param image_columns: names of the columns which contain image paths
@@ -66,7 +68,7 @@ def create_multimodal_dataset(
         images = []
         for img_col in image_columns:
             img = Image.open(images_path + '/' + row[img_col])
-            img = img.resize((DEFAULT_IMAGE_SIZE, DEFAULT_IMAGE_SIZE))
+            img = img.resize(image_size)
             images.append(tf.convert_to_tensor(img))
 
         texts = []

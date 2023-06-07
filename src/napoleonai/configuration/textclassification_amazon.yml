@@ -16,15 +16,14 @@ data:
   category_map: /Users/cipri/PycharmProjects/createAllShops/cat_map.txt
   language: english
 rnn_layer_sizes:
-  - 256
+  - 128
 dense_layer_sizes:
   - 128
-  - 32
-epochs: 10
+epochs: 7
 #word_embeddings: fasttext
-word_embedding_size: 128
+word_embedding_size: 64
 #word_embedding_save_path: saved/models/fasttext/french_corpus_ecommerce_128/
-language: french
+language: english
 optimizer: 'adam'
 batch_size: 128
 loss: 'categorical_crossentropy'

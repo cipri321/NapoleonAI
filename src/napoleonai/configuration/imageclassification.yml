@@ -1,11 +1,11 @@
 task: image classification
 type: EfficientNetV2B3
-model_name: efficient_net_rakuten_pretrained
+model_name: efficient_net_rakuten_pretrained_amazon
 is_pretrained: true
 train_layers_keywords:
   - top
   - block6
 data:
-  train_folder: SOME_TRAIN_FOLDER
-  img_size: 224
-epochs: 1
+  train_folder: /Users/cipri/PycharmProjects/createAllShops/images
+  img_size: 64
+epochs: 10

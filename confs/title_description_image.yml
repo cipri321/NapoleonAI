@@ -1,0 +1,26 @@
+task: multimodal classification
+data:
+  training_file: assets/trainingdata/rakuten_train.csv
+  test_file: assets/trainingdata/rakuten_test.csv
+  inference_file: assets/trainingdata/rakuten_test.csv
+  inference_results: results/rakuten_inference_results.csv
+  category_column: Category
+  category_map: assets/trainingdata/rakuten_category_map
+  language: french
+  images_path: /Users/cipri/Downloads/archive (5)/images/images/image_train
+modes:
+  - model: /Users/cipri/PycharmProjects/NapoleonAI/saved/models/rnn/title_128_rnn_lstm_high
+    is_feature_extractor: false
+    type: text
+    data_column: Title
+  - model: /Users/cipri/PycharmProjects/NapoleonAI/saved/models/rnn/description_128_rnn_lstm
+    is_feature_extractor: false
+    type: text
+    data_column: Description
+  - model: /Users/cipri/PycharmProjects/NapoleonAI/saved/models/images/image/efficient_net_rakuten_pretrained
+    is_feature_extractor: false
+    type: image
+    data_column: ImagePath
+epochs: 2
+batch_size: 128
+save_path: saved/models/multimodal/title_description_image
